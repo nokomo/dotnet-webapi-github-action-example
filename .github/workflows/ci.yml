@@ -37,3 +37,12 @@ jobs:
 
       - name: Test app
         run: dotnet test --no-build --configuration Release --verbosity normal
+
+      - name: Publish app
+        run: dotnet publish WebApiExample/WebApiExample.csproj --no-build --configuration Release --output ./publish
+
+      - name: Upload artifact
+        uses: action/upload-artifact@v4
+        with:
+          name: api-publish
+          path: ./publish

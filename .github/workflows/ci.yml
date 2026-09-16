@@ -31,3 +31,9 @@ jobs:
 
       - name: Restore Packages
         run: dotnet restore
+
+      - name: Build app
+        run: dotnet build --configuration Release
+
+      - name: Test app
+        run: dotnet test --no-build --configure Release --verbosity normal
